@@ -112,7 +112,7 @@
           .link-about-footer {
             color: #ccc;
           }
-        @-webkit-keyframes container { 
+ @-webkit-keyframes container { 
           from { opacity:0 } 
           to { opacity:1 }
         }
@@ -120,6 +120,10 @@
           from { opacity:0 } 
           to { opacity:1 }
         }
+
+
+
+        
         /* Responsif */
         @media (max-width: 600px) {
             body {
@@ -131,6 +135,15 @@
             .container {
         animation-name: container;
         animation-duration: 4s;
+        background-color: #111;
+        width: 90%;
+        height: 110px;
+            }
+            .headline {
+                font-size: 35px;
+            }
+            p {
+                font-size: 15px;
             }
             .navbar {
                 position: fixed;
@@ -150,33 +163,12 @@
                 white-space: pre-line;
                 cursor: default;
           }
-            .logo {
-                width: 252px;
-                height: 85px;
-            }
-            .button {
-                background-color: yellow;
-                font-weight: 600;
-                font-family: 'Inter';
-                color: black;
-                padding: 12px 56px;
-                font-size: 1rem;
-            }
-        h4 {
-            text-align: center;
-            color: #aaa;
-            font-size: 11px;
-            font-weight: 400;
-            margin-left: 15px;
-            margin: 0px 15px;
-            white-space: pre-line;
-        }
             .footer {
                 position: fixed;
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                height: 5%;
+                height: 9%;
                 background-color: transparent;
                 text-align: center;
             }
@@ -197,71 +189,4 @@
           from { opacity:0 } 
           to { opacity:1 }
         }
-        }
-
-        /* CSS POPUP */
-  /* Style untuk modal overlay */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        /* Style untuk modal box */
-        .modal {
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Style judul dan konten modal */
-        .modal h1 {
-            font-size: 1.5rem;
-            text-align: left;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .modal h3 {
-            font-size: 0.8rem;
-            text-align: left;
-            font-weight: 400;
-            margin-bottom: 10px;
-            color: #888;
-        }
-
-        .modal p {
-            font-size: 1rem;
-            color: #555;
-            text-align: left;
-            font-weight: 400;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        /* Style tombol tutup */
-        .modal button {
-            padding: 10px 150px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.9s ease;
-        }
-
-        .modal button:hover {
-            background-color: red;
-        }
+    }
