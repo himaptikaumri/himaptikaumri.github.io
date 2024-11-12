@@ -1,0 +1,272 @@
+<!-- 
+    |
+    | Host     : himaptikaumri.github.io/mubes/2024-2025/vote
+    | Powered  : GitHub
+    | Code     : HTML/CSS/JS
+    | DB       : None
+    | Develop  : e-Voting Himaptika 2023/2024
+    | Location : Pekanbaru
+    | Licence  : GNU v3
+    |
+ -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://img.hotimg.com/Logo-HIMAPTIKA.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Mubes 2024/2025 | HIMAPTIKA UMRI</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne+Mono&display=swap');
+        /* Global Styling */
+        body {
+            font-family: 'Inter';
+            margin: 0;
+            padding: 0;
+            background-image: url('https://raw.githubusercontent.com/himaptikaumri/himaptikaumri.github.io/refs/heads/main/assets/bg-mubes.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            height: 850px;
+            max-width: 1100px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 790px; /* Default height */
+            border: none;
+            border-radius: 10px;
+            opacity: 0; /* Mulai dengan transparansi 0 (tidak terlihat) */
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out; /* Transisi untuk opacity dan transform */
+            transform: translateY(220px); /* Posisi iframe dimulai sedikit lebih rendah */
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-family: 'Inter';
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsif untuk ukuran layar kecil (mobile) */
+        @media (max-width: 768px) {
+            body {
+                background-image: url(https://img.hotimg.com/bg-mobile-mubes.png);
+                background-size: cover;
+            }
+            iframe {
+                height: 500px; /* Mengurangi tinggi iframe pada perangkat mobile */
+            }
+
+            .container {
+                border-radius: 0px;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            h1 {
+                font-size: 1.2rem;
+                color: white;
+            }
+        }
+
+        /* Responsif untuk tablet */
+        @media (max-width: 1024px) {
+            iframe {
+                height: 750px; /* Menyesuaikan tinggi iframe untuk tablet */
+            }
+        }
+
+
+        /* CSS POPUP */
+  /* Style untuk modal overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Style untuk modal box */
+        .modal {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style judul dan konten modal */
+        .modal h1 {
+            font-size: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .modal h3 {
+            font-size: 0.8rem;
+            text-align: left;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #888;
+        }
+
+        .modal p {
+            font-size: 1rem;
+            color: #555;
+            text-align: left;
+            font-weight: 400;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        /* Style tombol tutup */
+        .modal button {
+            padding: 10px 150px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.9s ease;
+        }
+
+        .modal button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Musyawarah Besar 2024/2025</h1>
+        <button class="button" id="submitButton" onclick="showIframe()">ISI DATA SEKARANG</button>
+        <iframe id="formIframe" src="https://bit.ly/MUBES-HIMAPTIKA-2023-2024" title="Formulir Mubes 2024/2025"></iframe>
+    </div>
+
+  <!--POPUP EDITION-->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <h1>Peringatan Keamanan!</h1>
+        <p id="modalContent">Klik kanan telah dinonaktifkan pada halaman ini.</p>
+        <button onclick="closeModal()">Tutup</button>
+    </div>
+</div>
+    <script>
+        function showIframe() {
+            var iframe = document.getElementById('formIframe');
+            var button = document.getElementById('submitButton');
+
+            // Menghilangkan tombol setelah diklik
+            button.style.display = 'none';
+
+            // Mengubah opacity iframe menjadi 1 dan geser ke atas
+            iframe.style.opacity = '1'; // Mengubah opacity menjadi 1
+            iframe.style.transform = 'translateY(0)'; // Menggeser iframe ke atas
+        }
+
+   // Fungsi untuk mendeteksi tipe perangkat berdasarkan userAgent
+    function getDeviceType() {
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) {
+            return "Android";
+        } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+            return "iOS";
+        } else if (/windows phone/i.test(ua)) {
+            return "Windows Phone";
+        } else if (/tablet|ipad/i.test(ua)) {
+            return "Tablet";
+        } else if (/Mobile|Android|iP(ad|hone|od)|IEMobile|BlackBerry|Opera Mini/.test(ua)) {
+            return "Smartphone";
+        }
+        return "PC/Laptop/Desktop";
+    }
+
+    // Fungsi untuk mendapatkan IP dan menampilkan informasi di modal
+    function fetchAndDisplayInfo() {
+        const browserInfo = navigator.userAgent;
+        const deviceType = getDeviceType();
+
+        // Mengambil IP menggunakan ipify
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const userIP = data.ip;
+                const content = `<strong>IP :</strong> ${userIP}\n<strong>Perangkat :</strong> ${deviceType}\n<strong>Browser :</strong> ${browserInfo}\n`;
+                document.getElementById('modalContent').innerHTML = content; // Menggunakan innerHTML untuk memproses HTML
+                openModal();
+            })
+            .catch(error => {
+                console.error('Gagal mendapatkan IP:', error);
+                const content = `Browser Anda: ${browserInfo}\nPerangkat Anda: ${deviceType}\nGagal mendapatkan IP.`;
+                document.getElementById('modalContent').innerText = content;
+                openModal();
+            });
+    }
+
+    // Fungsi untuk membuka modal
+    function openModal() {
+        document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    // Fungsi untuk menutup modal
+    function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+    }
+
+    // Mencegah klik kanan dan menampilkan modal dengan info
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+        fetchAndDisplayInfo();
+    });
+    </script>
+    <script>
+        $(document).bind("contextmenu",function(e) {
+ e.preventDefault();
+});
+
+$(document).keydown(function(e){
+    if(e.which === 123){
+       return false;
+    }
+});
+    </script>
+</body>
+</html>
