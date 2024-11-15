@@ -35,6 +35,8 @@
             background-image: url(https://images.unsplash.com/photo-1523296004693-49fb425078b4?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
             background-size: cover;
             background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #fff;
             padding: 20px;
         }
@@ -139,6 +141,10 @@
     </style>
 </head>
 <body>
+    <!-- Add this HTML element right after the <body> tag -->
+<audio id="bgMusic" autoplay loop>
+    <source src="https://pouch.jumpshare.com/preview/GKSA780UmOyqDe431O_79PlEfNGx3-lCagJe3CyLouyZ77HNhKnO83gKE_A2aQfxyygTwQU3cvoU4FaeYz2qEPkV5leeM261sbuk8ycrXKN2ze79AoXGq9QoE_7bXgTrwuEs96busUOovT1tDQGp526yjbN-I2pg_cnoHs_AmgI.mp3" type="audio/mpeg">
+</audio>
     <div class="container">
         <h1>Thanks for Supporting us!</h1>
         <p>Himpunan Mahasiswa Program Studi Pendidikan Informatika</p>
@@ -162,10 +168,9 @@
             </div>
         </div>
 
-        <p>Ikuti kami untuk mendapatkan informasi terbaru</p>
         <div class="social-links">
             <a href="https://www.instagram.com/himaptika.umri" target="_blank">Instagram</a>
-            <a href="/about.html">Tentang Kami</a>
+            <a href="/about.html" target="_blank">Tentang Kami</a>
         </div>
     </div>
 
@@ -199,6 +204,54 @@
     // Update countdown setiap detik
     updateCountdown();
     const countdownInterval = setInterval(updateCountdown, 1000);
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bgMusic = document.getElementById('bgMusic');
+    
+    // Function to start playing music
+    function playMusic() {
+        bgMusic.play().catch(function(error) {
+            console.log("Play failed:", error);
+        });
+    }
+    
+    // Try to play music on various user interactions
+    document.addEventListener('click', playMusic);
+    document.addEventListener('touchstart', playMusic);
+    document.addEventListener('keydown', playMusic);
+    
+    // Add music controls
+    const musicButton = document.createElement('button');
+    musicButton.innerHTML = '🔊 Play/Pause Music';
+    musicButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #ffd700;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+    `;
+    
+    musicButton.addEventListener('click', function() {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            musicButton.innerHTML = '🔊 Pause Music';
+        } else {
+            bgMusic.pause();
+            musicButton.innerHTML = '🔈 Play Music';
+        }
+    });
+    
+    document.body.appendChild(musicButton);
+});
     </script>
 </body>
 </html>
