@@ -1,120 +1,45 @@
-<!--
-	|
-	| Fixed Web. 404 Page code by Tuah Afriadi
-	| Free recode. Life for Open Source !
-	|
--->
 
+<!-- File: 404.html -->
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="https://img.hotimg.com/Logo-HIMAPTIKA.png" type="image/png">
-	<title>404 Not Found</title>
-	<style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne+Mono&display=swap');
-
-* {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;   
-  }
-  body {
-        color: white;
-        font-family: 'Space Mono';
-  }
- .errorpage {
-        width: 100vw;
-        height: 100vh;
-        background-color: #0b00db;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-  }
-  .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-  }
-  .box-sizing {
-  		margin-bottom: 100px;
-  }
-  img {
-  		width: 400px;
-  		height: 350px;
-  		transition: 0.5s;
-  }
-  img:hover {
-  	opacity: 0.2;
-  }
-  h1 {
-  		font-size: 522px;
-  		font-weight: 300;
-  		font-family: 'Handjet';
-  		margin: 15px 0px;
-  }
-  button {
-  	border: none;
-  	width: 200px;
-  	height: 40px;
-  	font-weight: 600;
-  	font-size: 22px;
-  	font-family: 'Handjet';
-  	background: transparent;
-  	border: 1px dotted #aaa;
-  	color: #eee;
-  	transition: 0.5s;
-  }
-  button:hover {
-  	background: #aaa;
-  	color: black;
-  }
-  .footer {
-  	width: 100%;
-  	left: 0;
-  	bottom: 0;
-  	position: fixed;
-  	height: 2%;
-  	background: transparent;
-  	padding: 15px 5px;
-  	transition: background-color 0.4s linear , color 0.4s linear , font-size 0.4s ease;
-  }
-  .footer:hover {
-  	color: #fff;
-  	background-color: #090909;
-  	font-size: 14px;
-  }
-  .footer {
-  	font-family: 'Inter';
-  	color: #aaa;
-  	font-size: 12px;
-  }
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Mendapatkan path saat ini
+        let currentPath = window.location.pathname;
+        
+        // Redirect ke homepage dengan menyimpan path asli
+        window.location.href = window.location.origin + 
+            '/index.html#' + 
+            currentPath;
+    </script>
 </head>
 <body>
-	<center>
-    		<div class="errorpage">
-    			<div class="container">
-    				<div class="box-sizing">
-    					<h1>404</h1>
-    					<button id="backToHome">H O M E P A G E</button>
-    				</div>
-    			</div>
-    		</div>
+    <p>Mengarahkan ke halaman utama...</p>
+</body>
+</html>
 
-    		<div class="footer">
-    			<p>&copy; 2019-2024 HIMAPTIKA UMRI | Powered by GitHub.</p>
-        </div>
-
-	</center>
-  <script type="text/javascript">
-    document.getElementById('backToHome').addEventListener('click', function() {
-    window.location.href = 'https://himaptikaumri.github.io';
-});
-  </script>
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - HIMAPTIKA UMRI</title>
+    <script>
+        // Cek hash saat halaman dimuat
+        window.onload = function() {
+            // Hapus hash dari URL tanpa reload
+            if (window.location.hash) {
+                history.pushState("", document.title, window.location.pathname);
+            }
+        }
+    </script>
+    <!-- Sisipkan kode CSS dan konten dari halaman coming soon di sini -->
+</head>
+<body>
+    <!-- Konten halaman coming soon -->
 </body>
 </html>
