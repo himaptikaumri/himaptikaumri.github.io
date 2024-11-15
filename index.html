@@ -16,25 +16,189 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://img.hotimg.com/Logo-HIMAPTIKA.png" type="image/png">
-    <title>HIMAPTIKA UMRI</title>
-    <link rel="stylesheet" type="text/css" href="assets/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We're Closed! | Himaptika Umri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(https://images.unsplash.com/photo-1619162668585-a916cd9fac8a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: 0.9s linear;
+            border-radius: 20px;
+        }
+        .container:hover {
+            background-color: rgba(0, 0, 0, 0.0);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-item {
+            background-color: #2a2a2a;
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 100px;
+            border: 1px solid #4d4d4d;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #ccc;
+            text-transform: uppercase;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            background-color: #555;
+            text-decoration: none;
+            padding: 0.5rem 10rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #ffd700;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 0.8rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            .social-links a {
+            color: #ffd700;
+            background-color: #555;
+            text-decoration: none;
+            padding: 0.5rem 5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar">
-        <img src="https://raw.githubusercontent.com/himaptikaumri/himaptikaumri.github.io/refs/heads/main/assets/LOGO-FULL.png" class="logo" alt="HIMAPTIKA Logo">
+    <div class="container">
+        <h1>Thanks for Supporting us!</h1>
+        <p>Himpunan Mahasiswa Program Studi Pendidikan Informatika</p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Hari</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Jam</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Menit</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Detik</div>
+            </div>
+        </div>
+
+        <p>Ikuti kami untuk mendapatkan informasi terbaru</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/himaptika.umri" target="_blank">Instagram</a>
+        </div>
     </div>
 
-    <main class="container">
-        <div class="content-box">
-            <h1 class="headline">HIMAPTIKA UMRI</h1>
-            <p class="subheadline">Himpunan Mahasiswa Pendidikan Informatika</p>
-        </div>
-    </main>
+    <script>
+        // Set tanggal target (7 hari dari sekarang)
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 7);
 
-    <footer class="footer">
-        <p>&copy; 2019-2024 HIMAPTIKA-UMRI. All Rights Reserved | Himpunan Mahasiswa Pendidikan Informatika. Dikembangkan oleh e-Voting Himaptika 2023/2024 untuk kebutuhan Mubes. <a href="about.html" class="link-about-footer">Tentang Kami</a></p>
-    </footer>
+        function updateCountdown() {
+            const currentDate = new Date();
+            const difference = targetDate - currentDate;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+            if (difference < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('days').innerHTML = '00';
+                document.getElementById('hours').innerHTML = '00';
+                document.getElementById('minutes').innerHTML = '00';
+                document.getElementById('seconds').innerHTML = '00';
+            }
+        }
+
+        // Update countdown setiap detik
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
