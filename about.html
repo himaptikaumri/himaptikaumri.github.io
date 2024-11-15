@@ -17,15 +17,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://img.hotimg.com/Logo-HIMAPTIKA.png" type="image/png">
     <title>About Us - Himaptika UMRI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/about.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+  /* Navbar Styles */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #ffd700;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            min-height: 20vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1920/1080') center/cover;
+            opacity: 0.1;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-25px);
+        }
+
+        .social-icon {
+            transition: transform 0.6s ease, color 0.6s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
 
-    
+
     <!-- Hero Section -->
     <section class="hero-section relative">
         <div class="container mx-auto px-4 py-20 relative z-10">
